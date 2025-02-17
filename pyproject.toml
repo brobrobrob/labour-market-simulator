@@ -1,0 +1,18 @@
+[project]
+name = "labour-market-simulator"
+version = "0.1.0"
+description = "Behavioural/mathematical/economic simulations for employees "
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.pytest.ini_options]
+pythonpath = './src'
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+]
