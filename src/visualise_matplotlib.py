@@ -62,7 +62,6 @@ def plot_employees_current_wages_over_time(data: pl.DataFrame,
                                            year_col_name: str,
                                            current_wage_col_name: str,
                                            employer_colour_mapping: Dict[str, ColourType]):
-    print(data.columns)
     for employee in data['employee_name'].unique().to_list():
         employee_df = select_single_employee(data, employee)
         ax.plot(employee_df[year_col_name], employee_df[current_wage_col_name], label=employee, color=employer_colour_mapping[employee_df['employer_name'][0]])
