@@ -4,13 +4,13 @@ version = "0.1.0"
 description = "Behavioural/mathematical/economic simulations for employees "
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
-
-[tool.poetry.dependencies]
-python = "^3.11"
+dependencies = [
+    "matplotlib>=3.10.0",
+    "polars>=1.22.0",
+]
 
 [tool.pytest.ini_options]
-pythonpath = './src'
+pythonpath = ['./src', './']
 
 [dependency-groups]
 dev = [
