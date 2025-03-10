@@ -17,12 +17,13 @@ def select_single_employer(df : pl.DataFrame, employer_name: str) -> pl.DataFram
 def select_single_employee(df : pl.DataFrame, employee_name: str) -> pl.DataFrame:
     return df.filter(pl.col('employee_name') == employee_name)
 
-def visualise_matplotlib(data: Dict[str, pl.DataFrame], employer_names: list[str], employee_names: list[str]):
+def visualise_matplotlib(data: Dict[str, pl.DataFrame]):
     fig, (ax1, ax2) = plt.subplots(1, 2)
     year = 'year'
     current_funds = 'current_funds'
     current_wage = 'current_wage'
     # Assign each employer a colour for consistency across plots
+    employer_names = data['EMPLOYER_DATA']['employer_name'].unique().to_list()
     employer_colour_mapping = {
           employer_name: list(TABLEAU_COLORS.values())[i] for i, employer_name in enumerate(employer_names)
     }
@@ -91,9 +92,7 @@ def main():
     result = simplest_simulate(number_of_years=10,
                                 employees=employees,
                                 employers=[frugal, fair, generous])
-    visualise_matplotlib(data=result,
-                         employer_names=['Frugal Ltd.', 'Fair Ltd.', 'Generous Ltd.'],
-                            employee_names=['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank'])
+    visualise_matplotlib(data=result)
                          
                          
 
